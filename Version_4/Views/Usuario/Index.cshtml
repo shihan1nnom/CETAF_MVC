@@ -37,8 +37,8 @@
                             <td style="width:300px">@Html.DisplayFor(m => item.Password)</td>
                             <td  style="min-width:160px">
                                 <a href="@Url.Action("Editar","Usuario", new { id=item.UsuarioID})" style="margin-right:12px; width:25px; height:25px; margin-left:15px" class="icon icon-editar" data-toggle="tooltip" data-placement="top" title="Editar"></a>
-                                <a href="#" style="margin-right:15px; width:25px; height:25px; " class="icon icon-detalle" data-toggle="tooltip" data-placement="top" title="Detalle"></a>
-                                <a href="#" style="margin-right:15px; width:20px; height:20px; " class="icon icon-borrar" data-toggle="tooltip" data-placement="top" title="Eliminar"></a>
+                                <a href="@Url.Action("Detalle","Usuario", new { id=item.UsuarioID})" style="margin-right:15px; width:25px; height:25px; " class="icon icon-detalle" data-toggle="tooltip" data-placement="top" title="Detalle"></a>
+                                <a href="@Url.Action("Eliminar","Usuario", new { id=item.UsuarioID})" style="margin-right:15px; width:20px; height:20px; " class="icon icon-borrar" data-toggle="tooltip" data-placement="top" title="Eliminar"></a>
                             </td>
                         </tr>
                     }
