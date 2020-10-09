@@ -1,8 +1,81 @@
-﻿
+﻿@model Version_4.Models.Usuario
 @{
     ViewBag.Title = "Editar";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Editar</h2>
+<div style="overflow:auto;">
+    <div class="row-cols-1">
+        <div class="col">
+            <div class="card">
+                <div class="card-header text-center bg-dark align-middle" style="color:white; text-shadow:black">
+                    <h6 style="font:900">EDITAR USUARIO</h6>
+                </div>
+                <div class="card-body" style="align-self:center">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(m => m.UsuarioID)
+
+                        <div class="row">
+                             <div class="form-group" style="margin:30px 10px 30px 5px;">
+                                @Html.Label("Nombre:")
+                                @Html.TextBoxFor(m => m.Nombre, "", new { @class = "form-control", @placeholder = "Nombre" })
+                                @Html.ValidationMessageFor(m => m.Nombre, "", new { @class = "badge badge-danger" })
+                            </div>
+                            <div class="form-group" style="margin:30px 0px 30px 10px">
+                                @Html.Label("Apellidos:")
+                                @Html.TextBoxFor(m => m.Apellido, "", new { @class = "form-control", @placeholder = "Apellido" })
+                                @Html.ValidationMessageFor(m => m.Apellido, "", new { @class = "badge badge-danger" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group" style="margin:0px 10px 30px 5px;">
+                                @Html.Label("Tipo Identidad:")
+                                @Html.TextBoxFor(m => m.TipoIdent, "", new { @class = "form-control", @placeholder = "Nombre" })
+                                @Html.ValidationMessageFor(m => m.TipoIdent, "", new { @class = "badge badge-danger" })
+                            </div>
+                            <div class="form-group" style="margin:0px 0px 30px 10px">
+                                @Html.Label("Numero Identidad:")
+                                @Html.TextBoxFor(m => m.NumIdent, "", new { @class = "form-control", @placeholder = "Nombre" })
+                                @Html.ValidationMessageFor(m => m.NumIdent, "", new { @class = "badge badge-danger" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group" style="margin:0px 10px 30px 5px;">
+                                @Html.Label("Telefono:")
+                                @Html.TextBoxFor(m => m.Telefono, "", new { @class = "form-control", @placeholder = "Nombre" })
+                                @Html.ValidationMessageFor(m => m.Telefono, "", new { @class = "badge badge-danger" })
+                            </div>
+                            <div class="form-group" style="margin:0px 0px 30px 10px">
+                                @Html.Label("Email:")
+                                @Html.TextBoxFor(m => m.Email, "", new { @class = "form-control", @placeholder = "Nombre" })
+                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "badge badge-danger" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group" style="margin:0px 10px 50px 5px;">
+                                @Html.Label("Contraseña:")
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Contraseña" })
+                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "badge badge-danger" })
+                            </div>
+                            <div class="form-group" style="margin:0px 0px 50px 10px">
+                                @Html.Label("Confirmar Contraseña:")
+                                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @placeholder = "Confirmar Contraseña" })
+                                @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "badge badge-danger" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <input type="submit" name="submit" class="btn btn-outline-primary" value="ACTUALIZAR" style="width: 300px; margin-left:100px" />
+                        </div>                        
+                    }
+                </div>
+                <div class="row" style="float:left; margin-left:100px; margin-bottom:30px">
+                    <a href="@Url.Action("Index", "Usuario")" style="margin-right:15px; width:25px; height:25px; margin-left:15px;" class="icon icon-return" data-toggle="tooltip" data-placement="top" title="Regresar a Lista"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 

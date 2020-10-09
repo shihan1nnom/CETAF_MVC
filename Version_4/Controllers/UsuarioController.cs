@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using Version_4.Models;
 using System.Security.Cryptography;
+using System.Data.Entity.Migrations;
 
 namespace Version_4.Controllers
 {
@@ -85,6 +86,8 @@ namespace Version_4.Controllers
         {
             if (ModelState.IsValid)
             {
+                _usuario.Password = GetMD5(_usuario.Password);
+                _bd.Configuration.ValidateOnSaveEnabled = false;
                 _bd.Entry(_usuario).State = EntityState.Modified;
                 _bd.SaveChanges();
                 return RedirectToAction("Index");
