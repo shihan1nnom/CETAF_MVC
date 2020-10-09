@@ -17,6 +17,10 @@ namespace Version_4.Models
         [StringLength(50, MinimumLength = 3)]
         public string Nombre { get; set; }
 
+        [Required]
+        [DataType(DataType.MultilineText)]
+        public string Descripcion { get; set; }
+
         public virtual ICollection<Activo> Activos { get; set; }
     }
 }

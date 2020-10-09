@@ -1,0 +1,66 @@
+﻿@model Version_4.Models.Tipo_Usuario
+@{
+    ViewBag.Title = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="overflow:auto;">
+    <div class="row-cols-1">
+        <div class="col">
+            <div class="card">
+                <div class="card-header text-center align-middle" style="color:white; background-color:orangered">
+                    <h6 style="font:900">Tipo de usuario: @Html.DisplayFor(m => m.Nombre) </h6>
+                    <p style="font:600">¡¡¡ ¿Esta seguro que desea borrar este registro? !!!</p>
+                </div>
+                <div class="card-body" style=" padding:60px">
+                    <div class="row justify-content-center">
+                        <dl class="dl-horizontal">
+                            <dt>@Html.DisplayName("Nombre de perfil de usuario:")</dt>
+                            <dd style="margin-bottom:30px">@Html.DisplayFor(m => m.Nombre)</dd>
+
+                            <dt style="margin-bottom:5px">@Html.DisplayName("Este perfil tiene acceso a:")</dt>
+
+                            <dt>@Html.DisplayName("Usuario:")</dt>
+                            <dd style="margin-bottom:5px">@Html.DisplayFor(m => m.Usuario)</dd>
+
+                            <dt>@Html.DisplayName("Acticvos:")</dt>
+                            <dd style="margin-bottom:5px">@Html.DisplayFor(m => m.Activo)</dd>
+
+                            <dt>@Html.DisplayName("Tipos Usuario:")</dt>
+                            <dd style="margin-bottom:5px">@Html.DisplayFor(m => m.TipoUser)</dd>
+
+                            <dt>@Html.DisplayName("Sedes:")</dt>
+                            <dd style="margin-bottom:5px">@Html.DisplayFor(m => m.Sedes)</dd>
+
+                            <dt>@Html.DisplayName("Ambientes:")</dt>
+                            <dd style="margin-bottom:5px">@Html.DisplayFor(m => m.Ambientes)</dd>
+
+                            <dt>@Html.DisplayName("Asignaciones:")</dt>
+                            <dd style="margin-bottom:5px">@Html.DisplayFor(m => m.Asignar)</dd>
+
+                            <dt>@Html.DisplayName("Consultas:")</dt>
+                            <dd style="margin-bottom:5px">@Html.DisplayFor(m => m.Consulta)</dd>
+
+                            <dt>@Html.DisplayName("Copia de seguridad:")</dt>
+                            <dd style="margin-bottom:5px">@Html.DisplayFor(m => m.CopiaSeguridad)</dd>
+
+                        </dl>
+                    </div>
+                </div>
+                <div class="form-row justify-content-center">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <input type="submit" name="submit" class="btn btn-outline-danger" value="ELIMINAR" style="width: 300px;" />
+                    }
+                </div>
+                <div class="row" style="float:left; margin-left:100px; margin-bottom:30px">
+                    <a href="@Url.Action("Index", "TipoUser")" style="margin-right:15px; width:25px; height:25px; margin-left:15px;" class="icon icon-return" data-toggle="tooltip" data-placement="top" title="Regresar a Lista"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

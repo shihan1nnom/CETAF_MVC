@@ -126,7 +126,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CategoriaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TipoUserController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -142,6 +144,10 @@
     <Compile Include="Migrations\202010090235071_ContextoBD1.cs" />
     <Compile Include="Migrations\202010090235071_ContextoBD1.designer.cs">
       <DependentUpon>202010090235071_ContextoBD1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010092109585_ContectoBD.cs" />
+    <Compile Include="Migrations\202010092109585_ContectoBD.designer.cs">
+      <DependentUpon>202010092109585_ContectoBD.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Activo.cs" />
@@ -390,6 +396,15 @@
     <Content Include="Views\Usuario\Editar.cshtml" />
     <Content Include="Views\Usuario\Detalle.cshtml" />
     <Content Include="Views\Usuario\Eliminar.cshtml" />
+    <Content Include="Views\Categoria\Index.cshtml" />
+    <Content Include="Views\Categoria\Crear.cshtml" />
+    <Content Include="Views\Categoria\Editar.cshtml" />
+    <Content Include="Views\Categoria\Detalle.cshtml" />
+    <Content Include="Views\Categoria\Eliminar.cshtml" />
+    <Content Include="Views\TipoUser\Index.cshtml" />
+    <Content Include="Views\TipoUser\Crear.cshtml" />
+    <Content Include="Views\TipoUser\Editar.cshtml" />
+    <Content Include="Views\TipoUser\Eliminar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -413,6 +428,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202010090235071_ContextoBD1.resx">
       <DependentUpon>202010090235071_ContextoBD1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010092109585_ContectoBD.resx">
+      <DependentUpon>202010092109585_ContectoBD.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
