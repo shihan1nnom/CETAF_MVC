@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+
+    <!-- Bootstrap CSS CDN -->
+    @*<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">*@
+    <!-- Our Custom CSS -->
+    @*<link rel="stylesheet" href="style.css">*@
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+
+<body style="font-family: 'Courier New'; background-color:#e9ecef">
+    <div class="wrapper">
+        <nav id="sidebar" class="rounded" style="margin: 15px 15px 15px 15px; background-color:white; border:solid">
+            <div class="sidebar-header" style="text-align:center">
+                <img src="~/Imagenes/Logo_4.png" width="100" height="100" />
+                <h1>CETAF</h1>
+            </div>
+
+            <ul class="list-unstyled components">
+                <li>
+                    <p>Email: </p>
+                    <h5 style="text-align:center">TABLERO DE CONTROL</h5>
+                </li>
+                <li>
+                    <a href="#submenu-usuario" data-toggle="collapse" aria-expanded="false" style="text-align:left; border:none; height:55px;">
+                        <span class="btn">USUARIOS:</span>
+                        <span class="icon icon-user" style="float:right"></span>
+                    </a>
+                    <ul class="collapse list-unstyled" id="submenu-usuario">
+                        <li>
+                            <a href="@Url.Action("Index","Usuario")">Mostrar Usuarios</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#submenu-categoria" data-toggle="collapse" aria-expanded="false" style="text-align:left; border:none; height:55px">
+                        <span class="btn">CATEGORIA:</span>
+                        <span class="icon icon-categoria" style="float:right; width:35px; height:35px"></span>
+                    </a>
+                    <ul class="collapse list-unstyled" id="submenu-categoria">
+                        <li>
+                            <a href="#">Crear</a>
+                        </li>
+                        <li>
+                            <a href="#">Editar</a>
+                        </li>
+                        <li>
+                            <a href="#">Detalle</a>
+                        </li>
+                        <li>
+                            <a href="#">Eliminar</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#submenu-activos" data-toggle="collapse" aria-expanded="false" style="text-align:left; border:none; height:55px">
+                        <span class="btn">ACTIVOS:</span>
+                        <span class="icon icon-activos" style="float:right"></span>
+                    </a>
+                    <ul class="collapse list-unstyled" id="submenu-activos">
+                        <li>
+                            <a href="#">Crear</a>
+                        </li>
+                        <li>
+                            <a href="#">Editar</a>
+                        </li>
+                        <li>
+                            <a href="#">Detalle</a>
+                        </li>
+                        <li>
+                            <a href="#">Eliminar</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#submenu-tipo-usuario" data-toggle="collapse" aria-expanded="false" style="text-align:left; border:none; height:55px">
+                        <span class="btn">TIPOS DE USUARIO:</span>
+                        <span class="icon icon-tipo-user" style="float:right"></span>
+                    </a>
+                    <ul class="collapse list-unstyled" id="submenu-tipo-usuario">
+                        <li>
+                            <a href="#">Crear</a>
+                        </li>
+                        <li>
+                            <a href="#">Editar</a>
+                        </li>
+                        <li>
+                            <a href="#">Detalle</a>
+                        </li>
+                        <li>
+                            <a href="#">Eliminar</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#submenu-sedes" data-toggle="collapse" aria-expanded="false" style="text-align:left; border:none; height:55px">
+                        <span class="btn">SEDES:</span>
+                        <span class="icon icon-sedes" style="float:right"></span>
+                    </a>
+                    <ul class="collapse list-unstyled" id="submenu-sedes">
+                        <li>
+                            <a href="#">Crear</a>
+                        </li>
+                        <li>
+                            <a href="#">Editar</a>
+                        </li>
+                        <li>
+                            <a href="#">Detalle</a>
+                        </li>
+                        <li>
+                            <a href="#">Eliminar</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#submenu-ambientes" data-toggle="collapse" aria-expanded="false" style="text-align:left; border:none; height:55px">
+                        <span class="btn">AMBIENTES:</span>
+                        <span class="icon icon-ambientes" style="float:right"></span>
+                    </a>
+                    <ul class="collapse list-unstyled" id="submenu-ambientes">
+                        <li>
+                            <a href="#">Crear</a>
+                        </li>
+                        <li>
+                            <a href="#">Editar</a>
+                        </li>
+                        <li>
+                            <a href="#">Detalle</a>
+                        </li>
+                        <li>
+                            <a href="#">Eliminar</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#submenu-asignaciones" data-toggle="collapse" aria-expanded="false" style="text-align:left; border:none; height:55px">
+                        <span class="btn">ASINACIONES:</span>
+                        <span class="icon icon-asignaciones" style="float:right"></span>
+                    </a>
+                    <ul class="collapse list-unstyled" id="submenu-asignaciones">
+                        <li>
+                            <a href="#">Crear</a>
+                        </li>
+                        <li>
+                            <a href="#">Editar</a>
+                        </li>
+                        <li>
+                            <a href="#">Detalle</a>
+                        </li>
+                        <li>
+                            <a href="#">Eliminar</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#submenu-consultas" data-toggle="collapse" aria-expanded="false" style="text-align:left; border:none; height:55px">
+                        <span class="btn">CONSULTAS:</span>
+                        <span class="icon icon-consultas" style="float:right"></span>
+                    </a>
+                    <ul class="collapse list-unstyled" id="submenu-consultas">
+                        <li>
+                            <a href="#">Crear</a>
+                        </li>
+                        <li>
+                            <a href="#">Editar</a>
+                        </li>
+                        <li>
+                            <a href="#">Detalle</a>
+                        </li>
+                        <li>
+                            <a href="#">Eliminar</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#submenu-copia-seguridad" data-toggle="collapse" aria-expanded="false" style="text-align:left; border:none; height:55px">
+                        <span class="btn">COPIA DE SEGURIDAD:</span>
+                        <span class="icon icon-copia-seguridad" style="float:right; width:30px; height:30px; margin-right:5px"></span>
+                    </a>
+                    <ul class="collapse list-unstyled" id="submenu-copia-seguridad">
+                        <li>
+                            <a href="#">Crear</a>
+                        </li>
+                        <li>
+                            <a href="#">Editar</a>
+                        </li>
+                        <li>
+                            <a href="#">Detalle</a>
+                        </li>
+                        <li>
+                            <a href="#">Eliminar</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <div id="contenido" class="container-fluid rounded" style="margin:15px 15px 15px 15px; background-color:white; padding:30px; border:solid">
+           @RenderBody()
+        </div>
+    </div>
+
+    <hr />
+    <footer style="text-align:center">
+        <p>CETAF &copy;@DateTime.Now.Year - Creado por Shihan</p>
+    </footer>
+
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src='https://unpkg.com/bs-components@0.0.3/dist/bscomponents.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>*@
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+
+</html>

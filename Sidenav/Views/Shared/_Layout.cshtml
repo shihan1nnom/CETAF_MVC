@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+   
+    <ul id="sidenav-left" class="sidenav sidenav-fixed" style="transform:translateX(0px)">
+        <li>
+            <div class="row center">
+                <img src="~/Imagenes/Logo.png" width="200" height="110" />
+            </div>
+        </li>
+        <li class="no-padding">
+            <ul class="collapsible">
+                <li class="waves-effect" style="width:300px">
+                    <a class="collapsible-header waves-teal center" tabindex="0">
+                        USUARIOS
+                    </a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li>
+                                <a href="#" class="waves-effect">Listar</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="#" class="waves-effect">Crear</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="#" class="waves-effect">Eliminar</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="#" class="waves-effect">Detalle</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="#" class="waves-effect">Editar</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="waves-effect active" style="width:300px">
+                    <a class="collapsible-header waves-teal center" tabindex="0">
+                        USUARIOS
+                    </a>
+                    <div class="collapsible-body" style="display:block">
+                        <ul>
+                            <li>
+                                <a href="#" class="waves-effect">Listar</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="#" class="waves-effect">Crear</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="#" class="waves-effect">Eliminar</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="#" class="waves-effect">Detalle</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="#" class="waves-effect">Editar</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="waves-effect" style="width:300px">
+                    <a class="collapsible-header" tabindex="0">
+                        CATEGORIAS
+                    </a>
+                    <div class="collapsible-body" style="display:block">
+                        <ul>
+                            <li>
+                                <a href="#" class="waves-effect">Listar</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="#" class="waves-effect">Crear</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="#" class="waves-effect">Eliminar</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="#" class="waves-effect">Detalle</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="#" class="waves-effect">Editar</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
