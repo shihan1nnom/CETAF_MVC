@@ -1,0 +1,67 @@
+﻿@model Version_4.Models.Activo
+@{
+    ViewBag.Title = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="overflow:auto;">
+    <div class="row-cols-1">
+        <div class="col">
+            <div class="card">
+                <div class="card-header text-center align-middle" style="color:white; background-color:orangered">
+                    <h6 style="font:900">Activo: @Html.DisplayFor(m => m.Nombre)</h6>
+                    <p style="font:600">¡¡¡ ¿Esta seguro que desea borrar este registro? !!!</p>
+                </div>
+                <div class="card-body" style="align-self:center; padding:60px">
+                    <dl>
+                        <dt>@Html.DisplayName("Nombre:")</dt>
+                        <dd style="margin-bottom:5px">@Html.DisplayFor(m => m.Nombre)</dd>
+
+                        <dt>@Html.DisplayName("Numero serie:")</dt>
+                        <dd style="margin-bottom:5px">@Html.DisplayFor(m => m.Num_Serie)</dd>
+
+                        <dt>@Html.DisplayName("Fecha compra:")</dt>
+                        <dd style="margin-bottom:5px">@Html.DisplayFor(m => m.Fecha_Compra)</dd>
+
+                        <dt>@Html.DisplayName("Cobertura de seguro:")</dt>
+                        <dd style="margin-bottom:5px">@Html.DisplayFor(m => m.Cobertura_Seguro)</dd>
+
+                        <dt>@Html.DisplayName("Valor compra:")</dt>
+                        <dd style="margin-bottom:5px">@Html.DisplayFor(m => m.Valor_Compra)</dd>
+
+                        <dt>@Html.DisplayName("Garantia:")</dt>
+                        <dd style="margin-bottom:5px">@Html.DisplayFor(m => m.Garantia)</dd>
+
+                        <dt>@Html.DisplayName("Fecha puesto en servicio:")</dt>
+                        <dd style="margin-bottom:5px">@Html.DisplayFor(m => m.Fecha_Puesto_Servicio)</dd>
+
+                        <dt>@Html.DisplayName("Descripcion:")</dt>
+                        <dd style="margin-bottom:5px">@Html.DisplayFor(m => m.Descripcion)</dd>
+
+                        <dt>@Html.DisplayName("Vida util:")</dt>
+                        <dd style="margin-bottom:5px">@Html.DisplayFor(m => m.Vida_Util)</dd>
+
+                        <dt>@Html.DisplayName("Valor residual:")</dt>
+                        <dd style="margin-bottom:5px">@Html.DisplayFor(m => m.Valor_Residual)</dd>
+
+                        <dt>@Html.DisplayName("ID Categoria:")</dt>
+                        <dd style="margin-bottom:20px">@Html.DisplayFor(m => m.CategoriaID)</dd>
+                    </dl>
+                </div>
+                <div class="form-row justify-content-center">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <input type="submit" name="submit" class="btn btn-outline-danger" value="ELIMINAR" style="width: 300px;" />
+                    }
+                </div>
+                <div class="row" style="float:left; margin-left:100px; margin-bottom:30px">
+                    <a href="@Url.Action("Index", "Activo")" style="margin-right:15px; width:25px; height:25px; margin-left:15px;" class="icon icon-return" data-toggle="tooltip" data-placement="top" title="Regresar a Lista"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -13,49 +13,58 @@ namespace Version_4.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ActivoID { get; set; }
 
-        [Required]
-        [StringLength(50, MinimumLength = 3)]
+        [Required(ErrorMessage = "{0} requerido")]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "Minimo 3 caracteres maximo 50")]
+        [DataType(DataType.Text)]
         public string Nombre { get; set; }
 
-        [Required]
-        [StringLength(50, MinimumLength = 3)]
+        [Required(ErrorMessage = "{0} requerido")]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "Minimo 3 caracteres maximo 50")]
+        [DataType(DataType.Text)]
         public string Num_Serie { get; set; }
 
-        [Required]
-        public DateTime? Fecha_Compra { get; set; }
+        [Required(ErrorMessage = "{0} requerido")]
+        [DataType(DataType.Date)]
+        public string Fecha_Compra { get; set; }
 
-        [Required]
-        [StringLength(100, MinimumLength = 3)]
+        [Required(ErrorMessage = "{0} requerido")]
+        [StringLength(200, MinimumLength = 3, ErrorMessage = "Minimo 3 caracteres maximo 200")]
+        [DataType(DataType.Text)]
         public string Cobertura_Seguro { get; set; }
 
-        [Required]
-        public int Valor_Compra { get; set; }
+        [Required(ErrorMessage = "{0} requerido")]
+        [DataType(DataType.Currency)]
+        public string Valor_Compra { get; set; }
 
-        [Required]
-        [StringLength(100, MinimumLength = 3)]
+        [Required(ErrorMessage = "{0} requerido")]
+        [StringLength(200, MinimumLength = 3, ErrorMessage = "Minimo 3 caracteres maximo 200")]
+        [DataType(DataType.Text)]
         public string Garantia { get; set; }
 
-        [Required]
-        public DateTime? Fecha_Puesto_Servicio { get; set; }
+        [Required(ErrorMessage = "{0} requerido")]
+        [DataType(DataType.Date)]
+        public string Fecha_Puesto_Servicio { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "{0} requerido")]
         [DataType(DataType.MultilineText)]
         public string Descripcion { get; set; }
 
-        [Required]
-        [StringLength(50, MinimumLength = 3)]
+        [Required(ErrorMessage = "{0} requerido")]
+        [StringLength(200, MinimumLength = 3, ErrorMessage = "Minimo 3 caracteres maximo 200")]
+        [DataType(DataType.Text)]
         public string Vida_Util { get; set; }
 
-        [Required]
-        public int Valor_Residual { get; set; }
+        [Required(ErrorMessage = "{0} requerido")]
+        [DataType(DataType.Currency)]
+        public string Valor_Residual { get; set; }
 
         public int? CategoriaID { get; set; }
-        public int? SedeID { get; set; }
-        public int? AmbienteID { get; set; }
+        //public int? SedeID { get; set; }
+        //public int? AmbienteID { get; set; }
 
         public virtual Categoria Categoria { get; set; }
-        public virtual Sede Sede { get; set; }
-        public virtual Ambiente Ambiente { get; set; }
+        //public virtual Sede Sede { get; set; }
+        //public virtual Ambiente Ambiente { get; set; }
 
         public virtual ICollection<Asignacion> Asignaciones { get; set; }
     }

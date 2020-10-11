@@ -1,0 +1,45 @@
+﻿@model Version_4.Models.Ambiente
+@{
+    ViewBag.Title = "Crear";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="overflow:auto">
+    <div class="row-cols-1">
+        <div class="col">
+            <div class="card">
+                <div class="card-header text-center bg-dark align-middle" style="color:white; text-shadow:black">
+                    <h6 style="font:900">CREAR NUEVO AMBIENTE</h6>
+                </div>
+                <div class="card-body" style="align-self:center">
+                    @using (Html.BeginForm("Crear", "Ambientes", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.Label("Nombre del ambiente:")
+                            @Html.TextBoxFor(m => m.Nombre, "", new { @class = "form-control", @placeholder = "Nombre" })
+                            @Html.ValidationMessageFor(m => m.Nombre, "", new { @class = "badge badge-danger" })
+                            @if (ViewBag.Error != null)
+                            {
+                                <span class="badge badge-danger">@ViewBag.Error</span>
+                            }
+                        </div>
+                        <div class="form-group">
+                            @Html.Label("Descripcion:")
+                            @Html.EditorFor(m => m.Descripcion, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(m => m.Descripcion, "", new { @class = "badge badge-danger" })
+                        </div>
+                        <div class="form-group justify-content-md-center">
+                            <input type="submit" name="submit" class="btn btn-outline-primary" value="REGISTRAR" style="width: 300px" />
+                        </div>
+                    }
+                </div>
+                <div class="row" style="float:left; margin-left:100px; margin-bottom:30px">
+                    <a href="@Url.Action("Index","Ambientes")" style="margin-right:15px; width:25px; height:25px; margin-left:15px;" class="icon icon-return" data-toggle="tooltip" data-placement="top" title="Regresar a Lista"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

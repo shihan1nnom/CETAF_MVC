@@ -14,7 +14,7 @@ namespace Version_4.Models
         public int CategoriaID { get; set; }
 
         [Required]
-        [StringLength(50, MinimumLength = 3)]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "Digite nombre (Minimo 3 caracteres)")]
         public string Nombre { get; set; }
 
         [Required]

@@ -1,0 +1,102 @@
+﻿@model Version_4.Models.Activo
+@{
+    ViewBag.Title = "Editar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="overflow:auto;">
+    <div class="row-cols-1">
+        <div class="col">
+            <div class="card">
+                <div class="card-header text-center bg-dark align-middle" style="color:white; text-shadow:black">
+                    <h6 style="font:900">EDITAR ACTIVO</h6>
+                </div>
+                <div class="card-body" style="align-self:center">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(m => m.ActivoID)
+
+                        <div class="row">
+                            <div class="form-group" style="margin:30px 10px 15px 5px; width:300px">
+                                @Html.Label("Nombre del activo:")
+                                @Html.TextBoxFor(m => m.Nombre, "", new { @class = "form-control", @placeholder = "Nombre del activo" })
+                                @Html.ValidationMessageFor(m => m.Nombre, "", new { @class = "badge badge-danger" })
+                            </div>
+                            <div class="form-group" style="margin:30px 0px 15px 10px; width:300px">
+                                @Html.Label("Numero de serie:")
+                                @Html.TextBoxFor(m => m.Num_Serie, "", new { @class = "form-control", @placeholder = "Numero de serie" })
+                                @Html.ValidationMessageFor(m => m.Num_Serie, "", new { @class = "badge badge-danger" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group" style="margin:15px 10px 15px 5px; width:300px">
+                                @Html.Label("Fecha de compra:")
+                                @Html.EditorFor(m => m.Fecha_Compra, new { htmlAttributes = new { @class = "form-control", placeholder = "Seleccione una fecha" } })
+                                @Html.ValidationMessageFor(m => m.Fecha_Compra, "", new { @class = "badge badge-danger" })
+                            </div>
+                            <div class="form-group" style="margin:15px 0px 15px 10px; width:300px">
+                                @Html.Label("Cobertura seguro:")
+                                @Html.TextBoxFor(m => m.Cobertura_Seguro, "", new { @class = "form-control", @placeholder = "Cobertura de seguro" })
+                                @Html.ValidationMessageFor(m => m.Cobertura_Seguro, "", new { @class = "badge badge-danger" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group" style="margin:15px 10px 15px 5px; width:300px">
+                                @Html.Label("Valor de compra:")
+                                @Html.EditorFor(m => m.Valor_Compra, new { htmlAttributes = new { @class = "form-control", placeholder = "Valor compra" } })
+                                @Html.ValidationMessageFor(m => m.Valor_Compra, "", new { @class = "badge badge-danger" })
+                            </div>
+                            <div class="form-group" style="margin:15px 0px 15px 10px; width:300px">
+                                @Html.Label("Garantia:")
+                                @Html.TextBoxFor(m => m.Garantia, "", new { @class = "form-control", @placeholder = "Garantia" })
+                                @Html.ValidationMessageFor(m => m.Garantia, "", new { @class = "badge badge-danger" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group" style="margin:15px 10px 15px 5px; width:300px">
+                                @Html.Label("Fecha puesto en servicio:")
+                                @*@Html.TextBoxFor(m => m.Fecha_Puesto_Servicio, new { @type = "date", @class = "form-control datepicker" })*@
+                                @Html.EditorFor(m => m.Fecha_Puesto_Servicio, new { htmlAttributes = new { @class = "form-control", placeholder = "Seleccione una fecha" } })
+                                @Html.ValidationMessageFor(m => m.Fecha_Puesto_Servicio, "", new { @class = "badge badge-danger" })
+                            </div>
+                            <div class="form-group" style="margin:15px 0px 15px 10px; width:300px">
+                                @Html.Label("Descripcion:")
+                                @Html.EditorFor(m => m.Descripcion, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(m => m.Descripcion, "", new { @class = "badge badge-danger" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group" style="margin:15px 10px 15px 5px; width:300px">
+                                @Html.Label("Vida util:")
+                                @Html.TextBoxFor(m => m.Vida_Util, "", new { @class = "form-control", @placeholder = "Vida util" })
+                                @Html.ValidationMessageFor(m => m.Vida_Util, "", new { @class = "badge badge-danger" })
+                            </div>
+                            <div class="form-group" style="margin:15px 0px 30px 10px; width:300px">
+                                @Html.Label("Valor residual:")
+                                @Html.EditorFor(m => m.Valor_Residual, new { htmlAttributes = new { @class = "form-control", placeholder = "Valor residual" } })
+                                @Html.ValidationMessageFor(m => m.Valor_Residual, "", new { @class = "badge badge-danger" })
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="form-group">
+                                @Html.Label("Categoria:")
+                                @Html.DropDownListFor(m => m.CategoriaID, new SelectList(ViewBag.Categoria, "CategoriaID", "Nombre"), "----- Seleccionar -----", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.CategoriaID, "", new { @class = "badge badge-danger" })
+                            </div>
+                        </div>
+                        <div class="row justify-content-center" style="margin-top:40px">
+                            <input type="submit" name="submit" class="btn btn-outline-primary" value="ACTUALIZAR" style="width: 300px;" />
+                        </div>
+                    }
+                </div>
+                <div class="row" style="float:left; margin-left:100px; margin-bottom:30px">
+                    <a href="@Url.Action("Index", "Activo")" style="margin-right:15px; width:25px; height:25px; margin-left:15px;" class="icon icon-return" data-toggle="tooltip" data-placement="top" title="Regresar a Lista"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

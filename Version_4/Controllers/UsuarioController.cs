@@ -10,16 +10,29 @@ using System.Web.Mvc;
 using Version_4.Models;
 using System.Security.Cryptography;
 using System.Data.Entity.Migrations;
+using System.Web.UI.WebControls;
 
 namespace Version_4.Controllers
 {
     public class UsuarioController : Controller
     {
         private ContextoBD _bd = new ContextoBD();
+        
 
         public ActionResult Index()
         {
             return View(_bd.Usuarios.ToList());
+        }
+
+        public List<SelectListItem> Tipo_Ident()
+        {
+            List<SelectListItem> _tipo_ident = new List<SelectListItem>();
+            _tipo_ident.Add(new SelectListItem() { Text = "Cedula de ciudadania", Value = "1"});
+            _tipo_ident.Add(new SelectListItem() { Text = "Cedula de extranjeria", Value = "2" });
+            _tipo_ident.Add(new SelectListItem() { Text = "Pasaporte", Value = "3" });
+            _tipo_ident.Add(new SelectListItem() { Text = "Tarjeta de identidad", Value = "4" });
+
+            return _tipo_ident;
         }
 
         public ActionResult Detalle(int? id)
@@ -38,6 +51,15 @@ namespace Version_4.Controllers
 
         public ActionResult Crear()
         {
+            var _tipo_ident = Tipo_Ident();
+            ViewBag.TypeIdent = _tipo_ident.Select(x => new SelectListItem
+            {
+                Text = x.Text,
+                Value = x.Text
+            }).ToList();
+            List<Tipo_Usuario> lista = new List<Tipo_Usuario>();
+            lista = _bd.Tipo_Usuarios.ToList();
+            ViewBag.UserType = lista;
             return View();
         }
 
@@ -62,8 +84,16 @@ namespace Version_4.Controllers
                     return View();
                 }
             }
+            var _tipo_ident = Tipo_Ident();
+            ViewBag.TypeIdent = _tipo_ident.Select(x => new SelectListItem
+            {
+                Text = x.Text,
+                Value = x.Text
+            }).ToList();
+            List<Tipo_Usuario> lista = new List<Tipo_Usuario>();
+            lista = _bd.Tipo_Usuarios.ToList();
+            ViewBag.UserType = lista;
             return View();
-
         }
 
         public ActionResult Editar(int? id)
@@ -72,6 +102,15 @@ namespace Version_4.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            var _tipo_ident = Tipo_Ident();
+            ViewBag.TypeIdent = _tipo_ident.Select(x => new SelectListItem
+            {
+                Text = x.Text,
+                Value = x.Text
+            }).ToList();
+            List<Tipo_Usuario> lista = new List<Tipo_Usuario>();
+            lista = _bd.Tipo_Usuarios.ToList();
+            ViewBag.UserType = lista;
             Usuario _usuario = _bd.Usuarios.Find(id);
             if (_usuario == null)
             {
@@ -91,6 +130,18 @@ namespace Version_4.Controllers
                 _bd.Entry(_usuario).State = EntityState.Modified;
                 _bd.SaveChanges();
                 return RedirectToAction("Index");
+            }
+            else 
+            {
+                var _tipo_ident = Tipo_Ident();
+                ViewBag.TypeIdent = _tipo_ident.Select(x => new SelectListItem
+                {
+                    Text = x.Text,
+                    Value = x.Text
+                }).ToList();
+                List<Tipo_Usuario> lista = new List<Tipo_Usuario>();
+                lista = _bd.Tipo_Usuarios.ToList();
+                ViewBag.UserType = lista;
             }
             return View(_usuario);
         }

@@ -24,18 +24,18 @@
                         <th scope="col" style="min-width:300px; border:solid">Contraseña</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody style="text-align:center;">
                     @foreach (var item in Model)
                     {
-                        <tr>
-                            <td>@Html.DisplayFor(m => item.Nombre)</td>
-                            <td>@Html.DisplayFor(m => item.Apellido)</td>
-                            <td>@Html.DisplayFor(m => item.TipoIdent)</td>
-                            <td>@Html.DisplayFor(m => item.NumIdent)</td>
-                            <td>@Html.DisplayFor(m => item.Telefono)</td>
-                            <td>@Html.DisplayFor(m => item.Email)</td>
-                            <td style="width:300px">@Html.DisplayFor(m => item.Password)</td>
-                            <td  style="min-width:160px">
+                        <tr >
+                            <td class="align-middle">@Html.DisplayFor(m => item.Nombre)</td>
+                            <td class="align-middle">@Html.DisplayFor(m => item.Apellido)</td>
+                            <td class="align-middle">@Html.DisplayFor(m => item.TipoIdent)</td>
+                            <td class="align-middle">@Html.DisplayFor(m => item.NumIdent)</td>
+                            <td class="align-middle">@Html.DisplayFor(m => item.Telefono)</td>
+                            <td class="align-middle">@Html.DisplayFor(m => item.Email)</td>
+                            <td class="align-middle" style="width:300px">@Html.DisplayFor(m => item.Password)</td>
+                            <td  class="align-middle" style="min-width:160px">
                                 <a href="@Url.Action("Editar","Usuario", new { id=item.UsuarioID})" style="margin-right:12px; width:25px; height:25px; margin-left:15px" class="icon icon-editar" data-toggle="tooltip" data-placement="top" title="Editar"></a>
                                 <a href="@Url.Action("Detalle","Usuario", new { id=item.UsuarioID})" style="margin-right:15px; width:25px; height:25px; " class="icon icon-detalle" data-toggle="tooltip" data-placement="top" title="Detalle"></a>
                                 <a href="@Url.Action("Eliminar","Usuario", new { id=item.UsuarioID})" style="margin-right:15px; width:20px; height:20px; " class="icon icon-borrar" data-toggle="tooltip" data-placement="top" title="Eliminar"></a>

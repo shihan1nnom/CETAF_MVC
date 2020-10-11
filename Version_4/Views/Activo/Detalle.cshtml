@@ -1,0 +1,58 @@
+﻿@model Version_4.Models.Activo
+@{
+    ViewBag.Title = "Detalle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="overflow:auto;">
+    <div class="row-cols-1">
+        <div class="col">
+            <div class="card">
+                <div class="card-header text-center bg-dark align-middle" style="color:white; text-shadow:black">
+                    <h6 style="font:900">Activo: @Html.DisplayFor(m => m.Nombre)</h6>
+                </div>
+                <div class="card-body" style=" padding:60px">
+                    <dl>
+                        <dt style="font-weight:900">@Html.DisplayName("Nombre:")</dt>
+                        <dd style="margin-bottom:20px; margin-left:250px">@Html.DisplayFor(m => m.Nombre)</dd>
+
+                        <dt style="font-weight:900">@Html.DisplayName("Numero serie:")</dt>
+                        <dd style="margin-bottom:20px; margin-left:250px">@Html.DisplayFor(m => m.Num_Serie)</dd>
+
+                        <dt style="font-weight:900">@Html.DisplayName("Fecha compra:")</dt>
+                        <dd style="margin-bottom:20px; margin-left:250px">@Html.DisplayFor(m => m.Fecha_Compra)</dd>
+
+                        <dt style="font-weight:900">@Html.DisplayName("Cobertura de seguro:")</dt>
+                        <dd style="margin-bottom:20px; margin-left:250px">@Html.DisplayFor(m => m.Cobertura_Seguro)</dd>
+
+                        <dt style="font-weight:900">@Html.DisplayName("Valor compra:")</dt>
+                        <dd style="margin-bottom:20px; margin-left:250px">@Html.DisplayFor(m => m.Valor_Compra)</dd>
+
+                        <dt style="font-weight:900">@Html.DisplayName("Garantia:")</dt>
+                        <dd style="margin-bottom:20px; margin-left:250px">@Html.DisplayFor(m => m.Garantia)</dd>
+
+                        <dt style="font-weight:900">@Html.DisplayName("Fecha puesto en servicio:")</dt>
+                        <dd style="margin-bottom:20px; margin-left:250px">@Html.DisplayFor(m => m.Fecha_Puesto_Servicio)</dd>
+
+                        <dt style="font-weight:900">@Html.DisplayName("Descripcion:")</dt>
+                        <dd style="margin-bottom:20px; margin-left:250px">@Html.DisplayFor(m => m.Descripcion)</dd>
+
+                        <dt style="font-weight:900">@Html.DisplayName("Vida util:")</dt>
+                        <dd style="margin-bottom:20px; margin-left:250px">@Html.DisplayFor(m => m.Vida_Util)</dd>
+
+                        <dt style="font-weight:900">@Html.DisplayName("Valor residual:")</dt>
+                        <dd style="margin-bottom:20px; margin-left:250px">@Html.DisplayFor(m => m.Valor_Residual)</dd>
+
+                        <dt style="font-weight:900">@Html.DisplayName("ID Categoria:")</dt>
+                        <dd style="margin-bottom:20px; margin-left:250px">@Html.DisplayFor(m => m.CategoriaID)</dd>
+                    </dl>
+                </div>
+                <div class="row" style="float:left; margin-left:100px; margin-bottom:30px">
+                    <a href="@Url.Action("Index", "Activo")" style="margin-right:15px; width:25px; height:25px; margin-left:15px;" class="icon icon-return" data-toggle="tooltip" data-placement="top" title="Regresar a Lista"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

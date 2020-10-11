@@ -1,4 +1,5 @@
-﻿@model Version_4.Models.Usuario
+﻿@using Version_4.Models
+@model Version_4.Models.Usuario
 @{
     ViewBag.Title = "Editar";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -19,54 +20,60 @@
                         @Html.HiddenFor(m => m.UsuarioID)
 
                         <div class="row">
-                             <div class="form-group" style="margin:30px 10px 30px 5px;">
+                             <div class="form-group" style="margin:30px 10px 30px 5px; width:300px">
                                 @Html.Label("Nombre:")
                                 @Html.TextBoxFor(m => m.Nombre, "", new { @class = "form-control", @placeholder = "Nombre" })
                                 @Html.ValidationMessageFor(m => m.Nombre, "", new { @class = "badge badge-danger" })
                             </div>
-                            <div class="form-group" style="margin:30px 0px 30px 10px">
+                            <div class="form-group" style="margin:30px 0px 30px 10px; width:300px">
                                 @Html.Label("Apellidos:")
                                 @Html.TextBoxFor(m => m.Apellido, "", new { @class = "form-control", @placeholder = "Apellido" })
                                 @Html.ValidationMessageFor(m => m.Apellido, "", new { @class = "badge badge-danger" })
                             </div>
                         </div>
                         <div class="row">
-                            <div class="form-group" style="margin:0px 10px 30px 5px;">
-                                @Html.Label("Tipo Identidad:")
-                                @Html.TextBoxFor(m => m.TipoIdent, "", new { @class = "form-control", @placeholder = "Tipo Identidad" })
+                            <div class="form-group" style="margin:0px 10px 30px 5px; width:300px">
+                                @Html.Label("Tipo de identificacion:")
+                                @Html.DropDownListFor(m => m.TipoIdent, new SelectList(ViewBag.TypeIdent, "Value", "Text"), "----- Seleccionar -----", new { @class = "form-control" })
                                 @Html.ValidationMessageFor(m => m.TipoIdent, "", new { @class = "badge badge-danger" })
                             </div>
-                            <div class="form-group" style="margin:0px 0px 30px 10px">
+                            <div class="form-group" style="margin:0px 0px 30px 10px; width:300px">
                                 @Html.Label("Numero Identidad:")
                                 @Html.TextBoxFor(m => m.NumIdent, "", new { @class = "form-control", @placeholder = "Numero Identidad" })
                                 @Html.ValidationMessageFor(m => m.NumIdent, "", new { @class = "badge badge-danger" })
                             </div>
                         </div>
                         <div class="row">
-                            <div class="form-group" style="margin:0px 10px 30px 5px;">
+                            <div class="form-group" style="margin:0px 10px 30px 5px; width:300px">
                                 @Html.Label("Telefono:")
                                 @Html.TextBoxFor(m => m.Telefono, "", new { @class = "form-control", @placeholder = "Telefono" })
                                 @Html.ValidationMessageFor(m => m.Telefono, "", new { @class = "badge badge-danger" })
                             </div>
-                            <div class="form-group" style="margin:0px 0px 30px 10px">
+                            <div class="form-group" style="margin:0px 0px 30px 10px; width:300px">
                                 @Html.Label("Email:")
-                                @Html.TextBoxFor(m => m.Email, "", new { @class = "form-control", @placeholder = "Email", @disabled = "disabled" }) 
+                                @Html.TextBoxFor(m => m.Email, "", new { @class = "form-control", @placeholder = "Email" })  @*@disabled = "disabled"*@
                                 @Html.ValidationMessageFor(m => m.Email, "", new { @class = "badge badge-danger" })
                             </div>
                         </div>
                         <div class="row">
-                            <div class="form-group" style="margin:0px 10px 50px 5px;">
+                            <div class="form-group" style="margin:0px 10px 50px 5px; width:300px">
                                 @Html.Label("Contraseña:")
                                 @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Contraseña" })
                                 @Html.ValidationMessageFor(m => m.Password, "", new { @class = "badge badge-danger" })
                             </div>
-                            <div class="form-group" style="margin:0px 0px 50px 10px">
+                            <div class="form-group" style="margin:0px 0px 50px 10px; width:300px">
                                 @Html.Label("Confirmar Contraseña:")
                                 @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @placeholder = "Confirmar Contraseña" })
                                 @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "badge badge-danger" })
                             </div>
                         </div>
-                        <div class="form-row justify-content-center">
+                        <div class="row justify-content-center">
+                            <div class="form-group">
+                                @Html.Label("Seleccione tipo de usuario:")
+                                @Html.DropDownListFor(m => m.TipoUserID, new SelectList(ViewBag.UserType, "TipoUserID", "Nombre"), "-- Seleccionar --", new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="row justify-content-center" style="margin-top:40px">
                             <input type="submit" name="submit" class="btn btn-outline-primary" value="ACTUALIZAR" style="width: 300px;" />
                         </div>                        
                     }

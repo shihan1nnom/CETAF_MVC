@@ -14,23 +14,23 @@ namespace Version_4.Models
         public int UsuarioID { get; set; }
 
         [Required]
-        [StringLength(50, MinimumLength = 3, ErrorMessage = "Digite nombre")]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "Digite nombre (Minimo 3 caracteres)")]
         public string Nombre { get; set; }
 
         [Required]
-        [StringLength(50, MinimumLength = 3, ErrorMessage = "Digite apellido")]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "Digite apellido (Minimo 3 caracteres)")]
         public string Apellido { get; set; }
 
         [Required]
-        [StringLength(50, MinimumLength = 3, ErrorMessage = "Digite tipo de identidad")]
+        [StringLength(50, MinimumLength = 1, ErrorMessage = "Tipo no valido")]
         public string TipoIdent { get; set; }
 
         [Required]
-        [StringLength(50, MinimumLength = 3, ErrorMessage = "Digite numero de identidad")]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "Telefono no valido")]
         public string NumIdent { get; set; }
 
         [Required]
-        [StringLength(50, MinimumLength = 3, ErrorMessage = "Digite numero de telefono")]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "Numero no valido")]
         public string Telefono { get; set; }
 
         [Required]
